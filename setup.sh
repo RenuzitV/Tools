@@ -7,4 +7,4 @@ if [ ! -d "$FULL_PATH" ]; then
 	mkdir $FULL_PATH
 fi
 
-mv init.vim $FULL_PATH
+cp -rf init.vim $FULL_PATH

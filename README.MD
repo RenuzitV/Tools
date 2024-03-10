@@ -1,2 +1,1 @@
-call `make setup` to setup installation
-currently only supports Windows installations.
+call `make setup` to copy these configs to your local machine, or `make copy` to copy your local machine's config to this directory's `nvim` folder

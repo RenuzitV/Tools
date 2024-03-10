@@ -1,10 +1,16 @@
-LOCAL_PATH="$HOME/AppData/Local"
-NVIM_PATH="nvim"
+# Destination path where the nvim directory will be copied
+DEST_PATH="$HOME/AppData/Local/nvim"
 
-FULL_PATH="$LOCAL_PATH/$NVIM_PATH"
+# Source path of the nvim directory in the current directory
+SOURCE_PATH="./nvim"
 
-if [ ! -d "$FULL_PATH" ]; then
-	mkdir $FULL_PATH
+if [ -d "$SOURCE_PATH" ]; then
+    echo "Source directory $SOURCE_PATH found. Copying to $DEST_PATH..."
+
+    # Use cp with -r for recursive copy and -f to force overwrite without prompting
+    cp -rf "$SOURCE_PATH" "$DEST_PATH"
+
+    echo "'nvim' directory has been copied to $DEST_PATH."
+else
+    echo "Source directory $SOURCE_PATH not found. Please check the path and try again."
 fi
-
-cp -rf init.vim $FULL_PATH

@@ -79,14 +79,14 @@ return {
             }, {
                 { name = 'buffer' },
             }),
-            -- formatting = {
-            --     format = function(entry, vim_item)
-            --         if entry.source.name == "html-css" then
-            --             vim_item.menu = entry.completion_item.menu
-            --         end
-            --         return vim_item
-            --     end
-            -- }
+            foratting = {
+                format = function(entry, vim_item)
+                    if entry.source.name == "html-css" then
+                        vim_item.menu = entry.completion_item.menu
+                    end
+                    return vim_item
+                end
+            }
         })
 
         vim.diagnostic.config({

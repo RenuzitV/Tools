@@ -1,30 +1,86 @@
 return {
-    "ThePrimeagen/harpoon",
-    -- branch = "harpoon2",
-    -- requires = { { "nvim-lua/plenary.nvim" } },
-    config = function()
-        local harpoon = require("harpoon")
+    'ThePrimeagen/harpoon',
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+        settings = {
+            save_on_toggle = true
+        },
+    },
 
-        harpoon.setup()
-
-        local mark = require("harpoon.mark")
-        local ui = require("harpoon.ui")
-
-        vim.keymap.set("n", "<leader>a", mark.add_file)
-        vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-
-        vim.keymap.set("n", "<M-1>", function() ui.nav_file(1) end)
-        vim.keymap.set("n", "<M-2>", function() ui.nav_file(2) end)
-        vim.keymap.set("n", "<M-3>", function() ui.nav_file(3) end)
-        vim.keymap.set("n", "<M-4>", function() ui.nav_file(4) end)
-        vim.keymap.set("n", "<M-5>", function() ui.nav_file(5) end)
-        vim.keymap.set("n", "<M-6>", function() ui.nav_file(6) end)
-        vim.keymap.set("n", "<M-7>", function() ui.nav_file(7) end)
-        vim.keymap.set("n", "<M-8>", function() ui.nav_file(8) end)
-        vim.keymap.set("n", "<M-9>", function() ui.nav_file(9) end)
-        vim.keymap.set("n", "<M-0>", function() ui.nav_file(10) end)
-
-        vim.keymap.set("n", "<M-q>", function() ui.nav_prev()  end)
-        vim.keymap.set("n", "<M-e>", function() ui.nav_next()  end)
-    end
+    keys = {
+        {
+            "<leader>lh",
+            function() require("harpoon").logger:show() end,
+            desc = "shows harpoon logger"
+        },
+        {
+            "<leader>a",
+            function() require("harpoon"):list():append() end,
+            desc = "appends currently focused buffer to harpoon list"
+        },
+        {
+            "<leader>e",
+            function()
+                local harpoon = require("harpoon")
+                harpoon.ui:toggle_quick_menu(harpoon:list())
+            end,
+            desc = "opens harpoon's list of buffers"
+        },
+        {
+            "<M-q>",
+            function() require("harpoon"):list():prev() end,
+            desc = "selects the previous buffer in harpoon list"
+        },
+        {
+            "<M-e>",
+            function() require("harpoon"):list():next() end,
+            desc = "selects the next buffer in harpoon list"
+        },
+        {
+            "<M-1>",
+            function() require("harpoon"):list():select(1) end,
+            desc = "selects first buffer in harpoon list"
+        },
+        {
+            "<M-2>",
+            function() require("harpoon"):list():select(2) end,
+            desc = "selects second buffer in harpoon list"
+        },
+        {
+            "<M-3>",
+            function() require("harpoon"):list():select(3) end,
+            desc = "selects third buffer in harpoon list"
+        },
+        {
+            "<M-4>",
+            function() require("harpoon"):list():select(4) end,
+            desc = "selects fourth buffer in harpoon list"
+        },
+        {
+            "<M-5>",
+            function() require("harpoon"):list():select(5) end,
+            desc = "selects fifth buffer in harpoon list"
+        },
+        {
+            "<M-6>",
+            function() require("harpoon"):list():select(6) end,
+            desc = "selects sixth buffer in harpoon list"
+        },
+        {
+            "<M-7>",
+            function() require("harpoon"):list():select(7) end,
+            desc = "selects seventh buffer in harpoon list"
+        },
+        {
+            "<M-8>",
+            function() require("harpoon"):list():select(8) end,
+            desc = "selects eighth buffer in harpoon list"
+        },
+        {
+            "<M-9>",
+            function() require("harpoon"):list():select(9) end,
+            desc = "selects ninth buffer in harpoon list"
+        }
+    }
 }

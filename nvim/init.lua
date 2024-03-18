@@ -1,5 +1,5 @@
 -- Set PowerShell as the shell to use
-vim.o.shell = 'powershell.exe'
+vim.o.shell = vim.fn.executable('pwsh') and 'pwsh' or 'powershell'
 
 -- Configure the flags for the shell command, ensuring to use double backslashes for escape sequences in Lua
 vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '

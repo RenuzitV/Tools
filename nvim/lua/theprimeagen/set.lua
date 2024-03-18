@@ -1,4 +1,5 @@
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
+vim.opt.guicursor = "n-v-i-c:block-Cursor"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -30,3 +31,17 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+vim.opt.showmode = false
+
+-- REQUIRES lightline.vim
+vim.g.lightline = {
+    colorscheme = 'one',
+    background = 'dark',
+    active = {
+        left = { { 'mode', 'paste' },
+            { 'gitbranch', 'readonly', 'filename', 'modified' } },
+    },
+    component_function = {
+        gitbranch = 'FugitiveHead',
+    },
+}

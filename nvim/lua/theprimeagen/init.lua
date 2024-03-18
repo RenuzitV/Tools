@@ -1,9 +1,7 @@
 require("theprimeagen.set")
 require("theprimeagen.remap")
 
--- DO NOT INCLUDE THIS
---vim.opt.rtp:append("~/personal/streamer-tools")
--- DO NOT INCLUDE THIS
+require("theprimeagen.lazy_init")
 
 local augroup = vim.api.nvim_create_augroup
 local ThePrimeagenGroup = augroup('ThePrimeagen', {})
@@ -31,6 +29,37 @@ autocmd({"BufWritePre"}, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
+
+autocmd('LspAttach', {
+    group = ThePrimeagenGroup,
+    callback = function(e)
+        local opts = { buffer = e.buf }
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+        vim.keymap.set("n", "<F4>", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    end
+})
+
+-- not working
+-- local function kill_terminal_job()
+--     if vim.bo.buftype == 'terminal' then
+--         -- Sends SIGTERM to the job running in the terminal
+--         vim.fn.jobstop(vim.b.terminal_job_id)
+--     end
+-- end
+
+-- -- Sets up an autocommand to kill the terminal job when leaving a terminal buffer
+-- vim.api.nvim_create_autocmd("TermClose", {
+--     pattern = "term://*",
+--     callback = kill_terminal_job,
+-- })
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

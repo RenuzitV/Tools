@@ -7,6 +7,11 @@ SOURCE_PATH="./nvim"
 if [ -d "$SOURCE_PATH" ]; then
     echo "Source directory $SOURCE_PATH found. Copying to $DEST_PATH..."
 
+    # remove the contents of the destination directory if it exists
+    if [ -d "$DEST_PATH" ]; then
+        rm -rf "$DEST_PATH"
+    fi
+
     # Use cp with -r for recursive copy and -f to force overwrite without prompting
     cp -rf "$SOURCE_PATH" "$DEST_PATH"
 

@@ -53,3 +53,11 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- execute with the path of the current file instead of nvim's pwd
+vim.keymap.set('n', '<leader>m', [[:exec "cd %:p:h | !"<Left>]])
+
+-- get out of terminal mode
+vim.keymap.set('t', '<leader><Esc>', '<C-\\><C-n>')
+
+-- open a terminal in a new tab
+vim.keymap.set('n', '<leader>t', '<cmd>tabnew<CR><cmd>ter<CR>')

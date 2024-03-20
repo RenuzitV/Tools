@@ -16,6 +16,8 @@ local function term_select(list_item, list, options)
     if list_item == nil then
         vim.cmd("terminal")
 
+        vim.cmd("norm G")
+
         require("harpoon"):list("term"):append()
 
         return
@@ -56,6 +58,9 @@ local function term_select(list_item, list, options)
     Extensions.extensions:emit(Extensions.event_names.NAVIGATE, {
         buffer = bufnr,
     })
+
+    -- scroll to the bottom of the terminal ?
+    vim.cmd("norm G")
 end
 
 return {

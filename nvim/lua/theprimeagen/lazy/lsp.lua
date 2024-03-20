@@ -14,7 +14,7 @@ return {
     },
 
     config = function()
-        vim.lsp.set_log_level("debug")
+        -- vim.lsp.set_log_level("debug")
 
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
@@ -57,6 +57,13 @@ return {
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
+        local has_words_before = function()
+            local cursor_pos = vim.api.nvim_win_get_cursor(0)
+            local line = cursor_pos[1]
+            local col = cursor_pos[2]
+            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+        end
+
         cmp.setup({
             snippet = {
                 expand = function(args)
@@ -69,7 +76,19 @@ return {
                 ['<Up>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<Down>'] = cmp.mapping.select_next_item(cmp_select),
                 ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }), --
+                -- ['<Tab>'] = function(fallback)
+                --     if vim.fn["copilot#Accept"]() ~= "" then
+                --         vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-R>=copilot#Accept()<CR>", true, true, true),
+                --             "")
+                --     elseif cmp.visible() then
+                --         cmp.select_next_item()
+                --     elseif has_words_before() then
+                --         cmp.complete()
+                --     else
+                --         fallback() -- Default <Tab> behavior
+                --     end
+                -- end,
+                ['<Tab>'] = cmp.mapping.confirm({ select = true }), --
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({

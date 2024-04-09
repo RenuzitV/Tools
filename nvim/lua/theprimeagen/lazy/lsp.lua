@@ -26,6 +26,7 @@ return {
 
         require("fidget").setup({})
         require("mason").setup()
+        local util = require('lspconfig.util')
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
@@ -35,9 +36,23 @@ return {
             handlers = {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {
-                        capabilities = capabilities
+                        capabilities = capabilities,
+                        root_dir = util.root_pattern('.git'),
                     }
                 end,
+
+                -- ["eslint"] = function()
+                --     local lspconfig = require("lspconfig")
+                --     lspconfig.eslint.setup {
+                --         capabilities = capabilities,
+                --         on_attach = function(client, bufnr)
+                --             vim.api.nvim_create_autocmd("BufWritePre", {
+                --                 buffer = bufnr,
+                --                 command = "EslintFixAll",
+                --             })
+                --         end,
+                --     }
+                -- end,
 
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")

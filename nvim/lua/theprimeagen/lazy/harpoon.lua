@@ -16,7 +16,7 @@ return {
         },
         {
             "<leader>a",
-            function() require("harpoon"):list():append() end,
+            function() require("harpoon"):list():add() end,
             desc = "appends currently focused buffer to harpoon list"
         },
         {

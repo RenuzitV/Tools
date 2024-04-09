@@ -53,7 +53,31 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- execute with the path of the current file instead of nvim's pwd
-vim.keymap.set('n', '<leader>m', [[:exec "cd %:p:h | !"<Left>]])
-
+-- vim.keymap.set('n', '<leader>m', [[:exec "cd %:p:h | !"<Left>]])
+-- vim.keymap.set('n', '<leader>m', [[:exec "pushd %:p:h | ! | popd"<Left><Left><Left><Left><Left><Left><Left><Left>]])
 -- get out of terminal mode
+
+-- Define the function in Lua
+local function executeCommandInBufferDir()
+  -- Save the current working directory
+  local originalDir = vim.fn.getcwd()
+
+  -- Change to the directory of the current buffer
+  vim.cmd('cd %:p:h')
+
+  -- Prompt for a command to execute
+  local userCommand = vim.fn.input('Enter command: ')
+
+  -- Check if a command was entered and execute it
+  if userCommand ~= "" then
+    vim.cmd('!' .. userCommand)
+  end
+
+  -- Change back to the original working directory
+  vim.cmd('cd ' .. originalDir)
+end
+
+-- Create a key mapping to call the function
+vim.keymap.set('n', '<leader>m', executeCommandInBufferDir)
+
 vim.keymap.set('t', '<leader><Esc>', '<C-\\><C-n>')

@@ -11,15 +11,10 @@ local function term_select(list_item, list, options)
 
     options = options or {}
 
-    -- custom bit --
-    -- Open terminal if list item is nil, then add buffer to terminal harpoon list.
     if list_item == nil then
         vim.cmd("terminal")
-
         vim.cmd("norm G")
-
-        require("harpoon"):list("term"):append()
-
+        require("harpoon"):list("term"):add()
         return
     end
 
@@ -33,9 +28,17 @@ local function term_select(list_item, list, options)
 
     if not vim.api.nvim_buf_is_loaded(bufnr) then
         vim.fn.bufload(bufnr)
-        vim.api.nvim_set_option_value("buflisted", true, {
-            buf = bufnr,
-        })
+        vim.api.nvim_set_option_value("buflisted", true, {buf = bufnr})
+    end
+
+    -- Check if the buffer is empty or invalid before setting the cursor position
+    local line_count = vim.api.nvim_buf_line_count(bufnr)
+    if line_count == 0 then
+        -- Buffer is empty or invalid, open a new terminal
+        vim.cmd("terminal")
+        vim.cmd("norm G")
+        require("harpoon"):list("term"):append()
+        return
     end
 
     if options.vsplit then
@@ -49,18 +52,14 @@ local function term_select(list_item, list, options)
     vim.api.nvim_set_current_buf(bufnr)
 
     if set_position then
-        vim.api.nvim_win_set_cursor(0, {
-            list_item.context.row or 1,
-            list_item.context.col or 0,
-        })
+        -- Ensure the cursor position is within the buffer's range
+        local cursor_row = math.min(list_item.context.row or 1, line_count)
+        local cursor_col = list_item.context.col or 0
+        vim.api.nvim_win_set_cursor(0, {cursor_row, cursor_col})
     end
 
-    Extensions.extensions:emit(Extensions.event_names.NAVIGATE, {
-        buffer = bufnr,
-    })
-
-    -- scroll to the bottom of the terminal ?
-    vim.cmd("norm G")
+    Extensions.extensions:emit(Extensions.event_names.NAVIGATE, {buffer = bufnr})
+    vim.cmd("norm G")  -- Scroll to the bottom of the terminal
 end
 
 return {

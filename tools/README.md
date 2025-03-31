@@ -6,6 +6,8 @@
 - beekeeper studio (free database alternative)
 - k9s (kubernetes)
 - docker
+
+# database
 - diesel (database migration manager)
 
 
@@ -18,12 +20,12 @@
 
 - rectangle (window management, absolutely OP, must have)
 - charmstone (shortcut via mouse)
-- unnatural scroll wheels (might not need this anymore)
+- unnatural scroll wheels 
 - exelban/stats
+- raycast (replace mac's Spotlight (the cmd + space thing))
 
 
 # text editor combo. I don't personally use this, but they are good
-
 - tmux
 - fish (shell)
 - lazy.nvim
@@ -35,6 +37,5 @@
 - go-enum
 
 # intro to vim, vim motions, and more
-
 - lazy.nvim (vim plugin manager, also pre-installed package of vim plugins)
-- :Tutor (vim plugin to learn vim motions)
+- :Tutor (nvim command to learn vim motions)

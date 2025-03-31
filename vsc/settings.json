@@ -1,0 +1,307 @@
+{
+    "window.newWindowProfile": "Mac-Final",
+    "vim.commandLineModeKeyBindings": [
+        
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "y"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "Y"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "Y"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "p"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "P"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "P"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "after": [
+                ":",
+                "w",
+                "<CR>"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "h",
+            ],
+            "commands": [
+                "workbench.action.moveEditorToPreviousGroup"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+            ],
+            "commands": [
+                "workbench.action.moveEditorToNextGroup"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "D"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>",
+            ],
+            "after": [
+                "3",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "Y",
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "<C-p>",
+            ],
+            "after": [
+                "3",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger",
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "y"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "p"
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "commands": [
+                "editor.action.moveLinesDownAction",
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.moveLinesUpAction",
+            ]
+        },
+        {
+            "before": [
+                "$"
+            ],
+            "after": [
+                "g",
+                "_"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "_"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "{"
+            ],
+            "after": [
+                "c",
+                "{",
+                "}",
+                "<Esc>",
+                "P"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "["
+            ],
+            "after": [
+                "c",
+                "[",
+                "]",
+                "<Esc>",
+                "P"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "\""
+            ],
+            "after": [
+                "c",
+                "\"",
+                "\"",
+                "<Esc>",
+                "P"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "'"
+            ],
+            "after": [
+                "c",
+                "'",
+                "'",
+                "<Esc>",
+                "P"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "("
+            ],
+            "after": [
+                "c",
+                "(",
+                ")",
+                "<Esc>",
+                "P"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>",
+            ],
+            "after": [
+                "3",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "<C-p>",
+            ],
+            "after": [
+                "3",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "p"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "P"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "P"
+            ]
+        },
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [ ],
+}

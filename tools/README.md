@@ -6,6 +6,9 @@
 - exelban/stats -> display computer statistics
 - raycast -> replace mac's Spotlight (the cmd + space thing) 
 
+# good external tools
+- supermaven -> free copilot code completion
+
 # backend development
 - postman
 - k9s -> kubernetes
@@ -15,9 +18,6 @@
 - datagrip -> database
 - beekeeper studio -> free database alternative
 - diesel -> database migration manager
-
-# good external tools
-- supermaven -> free copilot code completion
 
 # text editor combo. I don't personally use this, but they are good
 - tmux

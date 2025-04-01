@@ -1,29 +1,23 @@
-# starter pack 
+# Starter Pack
+- brew -> package manager, chocolate for Mac
+- rectangle -> window management, absolutely OP, must have
+- charmstone -> shortcut via mouse 
+- unnatural scroll wheels -> makes mouse wheel scroll naturally
+- exelban/stats -> display computer statistics
+- raycast -> replace mac's Spotlight (the cmd + space thing) 
 
-- brew (package manager)
+# backend development
 - postman
-- datagrip (database)
-- beekeeper studio (free database alternative)
-- k9s (kubernetes)
+- k9s -> kubernetes
 - docker
 
 # database
-- diesel (database migration manager)
-
+- datagrip -> database
+- beekeeper studio -> free database alternative
+- diesel -> database migration manager
 
 # good external tools
-
-- supermaven (free copilot code completion)
-- 
-
-# Macbook QoL 
-
-- rectangle (window management, absolutely OP, must have)
-- charmstone (shortcut via mouse)
-- unnatural scroll wheels 
-- exelban/stats
-- raycast (replace mac's Spotlight (the cmd + space thing))
-
+- supermaven -> free copilot code completion
 
 # text editor combo. I don't personally use this, but they are good
 - tmux
@@ -32,10 +26,9 @@
 - alacritty
 
 # go-specific
-
 - go-lines
 - go-enum
 
 # intro to vim, vim motions, and more
-- lazy.nvim (vim plugin manager, also pre-installed package of vim plugins)
-- :Tutor (nvim command to learn vim motions)
+- lazy.nvim -> vim plugin manager, also pre-installed package of vim plugins
+- :Tutor -> nvim command to learn vim motions

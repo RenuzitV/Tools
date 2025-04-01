@@ -5,7 +5,7 @@ Navigating in a Mac is quite different from using a Windows computer. As a Windo
 
 Mac attempts to fix this by only showing icons of each application within our application when using `cmd-tab`, then we can switch between windows of the same application using ``cmd+\``
 
-[How it works](Media/cmd-tab.mov)
+[How it works](https://github.com/user-attachments/assets/9901946f-10ca-4fde-9424-e1a814b5d7f9)
 
 (Normally, people would just scroll 4 finglers to get this )
 
